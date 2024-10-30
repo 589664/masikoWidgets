@@ -1,0 +1,21 @@
+.temperature-gauge-wrapper {
+  display: inline-block;
+  transform-origin: center; /* Ensure scaling happens from the center */
+}
+
+.temperature-gauge-svg {
+  overflow: visible;
+}
+
+/* Styling for Temperature Labels */
+.min-label,
+.max-label {
+  font-size: 1em;
+  fill: #666;
+}
+
+.current-temperature-label {
+  font-size: 1.5em;
+  font-weight: bold;
+  fill: #ff4500;
+}
