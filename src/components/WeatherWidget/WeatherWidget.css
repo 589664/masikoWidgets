@@ -5,11 +5,11 @@
   background-color: var(--background);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background 0.5s ease-in-out;
+  color: var(--text); /* Set color for all text inside the widget */
 }
 
 .widget-header {
   text-align: center;
-  color: var(--text);
 }
 
 .widget-main {
@@ -19,7 +19,10 @@
   margin: 20px 0;
 }
 
+.widget-footer {
+  text-align: center; /* Make footer text centered as well */
+}
+
 .widget-temperature {
   font-size: 48px;
-  color: var(--text);
 }

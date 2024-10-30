@@ -1,11 +1,12 @@
 import React from "react";
+import { WiDaySunny } from "react-icons/wi";
 import "./TemperatureGauge.css";
 
 interface TemperatureGaugeProps {
   minTemperature: number;
   maxTemperature: number;
   currentTemperature: number;
-  scale?: number; // Scale factor to resize
+  scale?: number;
 }
 
 const TemperatureGauge: React.FC<TemperatureGaugeProps> = ({
@@ -18,7 +19,7 @@ const TemperatureGauge: React.FC<TemperatureGaugeProps> = ({
     ((currentTemperature - minTemperature) /
       (maxTemperature - minTemperature)) *
     100;
-  const radius = 100; // Radius of the arc
+  const radius = 100; // Keep the radius the same to maintain gauge size
   const strokeWidth = 15;
 
   // Calculate the angle for the current temperature
@@ -76,9 +77,9 @@ const TemperatureGauge: React.FC<TemperatureGaugeProps> = ({
     >
       <svg
         className="temperature-gauge-svg"
-        width="300"
-        height="200"
-        viewBox="0 0 300 200"
+        width="280"
+        height="160"
+        viewBox="10 50 280 160"
       >
         <defs>
           {/* Define gradient for the arc */}
@@ -104,55 +105,40 @@ const TemperatureGauge: React.FC<TemperatureGaugeProps> = ({
         <path
           d={describeArc(150, 150, radius, startAngle, endAngle)}
           fill="none"
-          stroke="#e6e6e6"
-          strokeWidth={strokeWidth}
+          stroke="var(--gauge-border-color, #e6e6e6)" // Fallback to light grey if the CSS variable is unavailable
+          strokeWidth={strokeWidth - 5}
           strokeLinecap="round"
+          className="gauge-arc"
         />
 
         {/* Filled Arc */}
         <path
           d={describeArc(150, 150, radius, startAngle, fillAngle)}
           fill="none"
-          stroke="url(#temperatureGradient)"
+          stroke="url(#temperatureGradient)" // This remains as gradient
           strokeWidth={strokeWidth}
           strokeLinecap="round"
+          className="gauge-arc"
         />
 
-        {/* Min Temperature Label */}
-        <text
-          x="50"
-          y="220"
-          textAnchor="middle"
-          fontSize="14"
-          fill="#666"
-          className="min-label"
-        >
+        {/* Icon and Temperature Label */}
+        <g className="gauge-content">
+          <foreignObject x="90" y="110" width="120" height="40">
+            <div className="gauge-content-container">
+              <WiDaySunny className="weather-icon" color="gold" />
+              <span className="current-temperature">
+                {currentTemperature}°C
+              </span>
+            </div>
+          </foreignObject>
+        </g>
+
+        {/* Min and Max Temperature Labels */}
+        <text x="30" y="200" textAnchor="middle" className="min-label">
           {minTemperature}°C
         </text>
-
-        {/* Max Temperature Label */}
-        <text
-          x="250"
-          y="220"
-          textAnchor="middle"
-          fontSize="14"
-          fill="#666"
-          className="max-label"
-        >
+        <text x="270" y="200" textAnchor="middle" className="max-label">
           {maxTemperature}°C
-        </text>
-
-        {/* Current Temperature Label */}
-        <text
-          x="150"
-          y="150"
-          textAnchor="middle"
-          fontSize="250"
-          fontWeight="bold"
-          fill="#ff4500"
-          className="current-temperature-label"
-        >
-          {currentTemperature}°C
         </text>
       </svg>
     </div>

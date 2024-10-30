@@ -1,6 +1,6 @@
 import React from "react";
 import "./WeatherWidget.css";
-import { WiDaySunny } from "react-icons/wi";
+import TemperatureGauge from "../TemperatureGauge/TemperatureGauge";
 
 interface WeatherWidgetProps {
   city: string;
@@ -23,8 +23,12 @@ const WeatherWidget: React.FC<WeatherWidgetProps> = ({
         <h2>{city}</h2>
       </div>
       <div className="widget-main">
-        <WiDaySunny size={50} color="gold" />
-        <h1 className="widget-temperature">{temperature}°C</h1>
+        <TemperatureGauge
+          minTemperature={5}
+          maxTemperature={15}
+          currentTemperature={temperature}
+          scale={1.0} // Scales the gauge
+        />
         <p>{condition}</p>
       </div>
       <div className="widget-footer">

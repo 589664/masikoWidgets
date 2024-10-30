@@ -7,15 +7,31 @@
   overflow: visible;
 }
 
-/* Styling for Temperature Labels */
+.gauge-arc {
+  transition: stroke 0.5s ease-in-out; /* Smooth transition for color changes */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .min-label,
 .max-label {
   font-size: 1em;
-  fill: #666;
+  fill: var(--text); /* Use the text variable to adapt to theme */
+  font-weight: bold;
 }
 
-.current-temperature-label {
+.gauge-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-icon {
+  font-size: 3em;
+  margin-right: 5px;
+}
+
+.current-temperature {
   font-size: 1.5em;
   font-weight: bold;
-  fill: #ff4500;
+  color: #ff4500;
 }
