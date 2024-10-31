@@ -9,6 +9,17 @@ function App() {
   // Using custom hook to access theme context
   const { theme, toggleTheme } = useTheme();
 
+  const weatherData = {
+    city: "Bergen",
+    temperature: 12,
+    feelsLikeTemperature: 10,
+    condition: "Cloudy",
+    humidity: 80,
+    rainAmount: 3, // mm of rain
+    windSpeed: 5, // m/s
+    windDirection: "NW", // North-West direction
+  };
+
   return (
     <div className="App">
       {/* Button to toggle between light and dark modes */}
@@ -18,11 +29,14 @@ function App() {
 
       {/* Weather Widget Component */}
       <WeatherWidget
-        city="Bergen"
-        temperature={12}
-        condition="Sunny"
-        humidity={50}
-        windSpeed={10}
+        city={weatherData.city}
+        temperature={weatherData.temperature}
+        feelsLikeTemperature={weatherData.feelsLikeTemperature}
+        condition={weatherData.condition}
+        humidity={weatherData.humidity}
+        rainAmount={weatherData.rainAmount}
+        windSpeed={weatherData.windSpeed}
+        windDirection={weatherData.windDirection}
       />
     </div>
   );

@@ -1,28 +1,99 @@
 .widget-container {
   width: 250px;
-  padding: 20px;
-  border-radius: 15px;
-  background-color: var(--background);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.5s ease-in-out;
-  color: var(--text); /* Set color for all text inside the widget */
+  padding: 16px;
+  border-radius: 12px;
+  background-color: var(--widget-background);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.5s ease-in-out;
+  color: var(--text);
+}
+
+.city-title {
+  margin-top: 0;
 }
 
 .widget-header {
   text-align: center;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .widget-main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .widget-footer {
-  text-align: center; /* Make footer text centered as well */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.widget-temperature {
-  font-size: 48px;
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Space between icon and text */
+  flex: 1; /* Distribute space evenly within each row */
+  font-size: 0.75em; /* Set base font size for all children */
+}
+
+/* Set width for labels without additional font-size styling */
+.footer-label {
+  width: 60px; /* Fixed width for labels */
+  text-align: left;
+  color: var(--text);
+  /* Remove any font-size declarations to inherit from .footer-item */
+}
+
+/* Remove font-size from .footer-value to ensure consistency */
+.footer-value {
+  font-weight: 500;
+}
+
+/* Scale the raindrop icon to reduce whitespace */
+.footer-icon.raindrop-icon {
+  transform: scale(1.5);
+}
+
+.footer-icon {
+  color: var(--icon-color);
+}
+
+.direction-icon {
+  font-size: 0.7em;
+  color: var(--icon-color);
+}
+
+/* Directional icon rotation */
+.direction-n {
+  transform: rotate(0deg);
+}
+.direction-ne {
+  transform: rotate(45deg);
+}
+.direction-e {
+  transform: rotate(90deg);
+}
+.direction-se {
+  transform: rotate(135deg);
+}
+.direction-s {
+  transform: rotate(180deg);
+}
+.direction-sw {
+  transform: rotate(225deg);
+}
+.direction-w {
+  transform: rotate(270deg);
+}
+.direction-nw {
+  transform: rotate(315deg);
 }
