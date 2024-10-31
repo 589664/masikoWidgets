@@ -105,7 +105,7 @@ const TemperatureGauge: React.FC<TemperatureGaugeProps> = ({
         <path
           d={describeArc(150, 150, radius, startAngle, endAngle)}
           fill="none"
-          stroke="var(--gauge-border-color, #e6e6e6)" // Fallback to light grey if the CSS variable is unavailable
+          stroke="var(--gauge-border-color)"
           strokeWidth={strokeWidth - 5}
           strokeLinecap="round"
           className="gauge-arc"

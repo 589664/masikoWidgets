@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import { useTheme } from "./ThemeContext";
 import WeatherWidget from "./components/WeatherWidget/WeatherWidget";
 
@@ -15,8 +14,8 @@ function App() {
     feelsLikeTemperature: 10,
     condition: "Cloudy",
     humidity: 80,
-    rainAmount: 3, // mm of rain
-    windSpeed: 5, // m/s
+    rainAmount: 30, // mm of rain
+    windSpeed: 15, // m/s
     windDirection: "NW", // North-West direction
   };
 

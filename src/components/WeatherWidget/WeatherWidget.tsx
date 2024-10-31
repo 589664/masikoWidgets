@@ -6,8 +6,11 @@ import {
   WiStrongWind,
   WiDirectionUp,
   WiHumidity,
+  WiCloud,
+  WiRain,
 } from "react-icons/wi";
 import TemperatureGauge from "../TemperatureGauge/TemperatureGauge";
+import HourlyWeatherModule from "../HourWeather/HourlyWeatherModule";
 
 interface WeatherWidgetProps {
   city: string;
@@ -26,6 +29,33 @@ interface WeatherWidgetProps {
     direction?: number;
   }; // Allows customization of icon sizes
 }
+
+const forecast = [
+  {
+    time: "12 - 14",
+    weatherIcon: <WiCloud size={24} />,
+    temperature: 14,
+    windSpeed: 13,
+    windGust: 17,
+    windDirection: "NE",
+  },
+  {
+    time: "14 - 16",
+    weatherIcon: <WiRain size={24} />,
+    temperature: 13,
+    windSpeed: 15,
+    windGust: 20,
+    windDirection: "E",
+  },
+  {
+    time: "16 - 18",
+    weatherIcon: <WiCloud size={24} />,
+    temperature: 12,
+    windSpeed: 12,
+    windGust: 15,
+    windDirection: "S",
+  },
+];
 
 const WeatherWidget: React.FC<WeatherWidgetProps> = ({
   city,
@@ -50,7 +80,6 @@ const WeatherWidget: React.FC<WeatherWidgetProps> = ({
           currentTemperature={temperature}
           scale={1.0}
         />
-        <p>{condition}</p>
       </div>
       <div className="widget-footer">
         <div className="footer-row">
@@ -82,11 +111,12 @@ const WeatherWidget: React.FC<WeatherWidgetProps> = ({
             <span>Wind:</span>
             <span className="footer-value">{windSpeed} m/s</span>
             <WiDirectionUp
-              size={iconSizes.direction || 20}
-              className={`footer-icon direction-icon direction-${windDirection.toLowerCase()}`}
+              size={iconSizes.direction || 24}
+              className={`footer-icon direction-icon-header direction-${windDirection.toLowerCase()}`}
             />
           </div>
         </div>
+        <HourlyWeatherModule forecast={forecast} />
       </div>
     </div>
   );

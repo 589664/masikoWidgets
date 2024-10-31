@@ -19,6 +19,7 @@ code {
   --text: #363537;
   --widget-background: #f0f0f0;
   --icon-color: #f4b004;
+  --gauge-border-color: #393939;
 }
 
 /* Dark Theme */
@@ -27,4 +28,5 @@ code {
   --text: #fafafa;
   --widget-background: #333333;
   --icon-color: #ffa500;
+  --gauge-border-color: #e6e6e6;
 }
