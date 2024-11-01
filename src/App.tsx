@@ -19,6 +19,8 @@ function App() {
     rainAmount: 30, // mm of rain
     windSpeed: 15, // m/s
     windDirection: "NW", // North-West direction
+    sunriseTime: "08:00",
+    sunsetTime: "20:00",
   };
 
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -36,8 +38,8 @@ function App() {
       "+01:00"
     );
     if (weatherData && sunData) {
-      setSunTimes(sunData);
-      setWeather(weatherData);
+      setSunTimes(sunTimes);
+      setWeather(weather);
       console.log("Fetched Sun data:", sunData);
       console.log("Fetched Weather Data:", weatherData); // Log the weather data to the console
     } else {
@@ -64,6 +66,8 @@ function App() {
         rainAmount={weatherData.rainAmount}
         windSpeed={weatherData.windSpeed}
         windDirection={weatherData.windDirection}
+        sunriseTime={weatherData.sunriseTime}
+        sunsetTime={weatherData.sunsetTime}
       />
     </div>
   );
