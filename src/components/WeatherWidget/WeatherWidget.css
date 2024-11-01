@@ -14,10 +14,34 @@
 }
 
 .widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.header-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1em;
+}
+
+.header-icon {
+  color: var(--icon-color);
+}
+
+.header-time {
+  margin-top: 2px;
+  font-size: 0.8em;
+  color: var(--text);
+}
+
+.city-title {
+  font-size: 1.7em;
+  font-weight: bold;
   text-align: center;
-  font-size: 1.2em;
-  font-weight: 500;
-  margin-bottom: 10px;
+  flex: 1;
 }
 
 .widget-main {

@@ -8,6 +8,8 @@ import {
   WiHumidity,
   WiCloud,
   WiRain,
+  WiSunrise,
+  WiSunset,
 } from "react-icons/wi";
 import TemperatureGauge from "../TemperatureGauge/TemperatureGauge";
 import HourlyWeatherModule from "../HourWeather/HourlyWeatherModule";
@@ -20,14 +22,16 @@ interface WeatherWidgetProps {
   humidity: number;
   rainAmount: number;
   windSpeed: number;
-  windDirection: string; // e.g., "N", "NE", "E", etc.
+  windDirection: string;
+  sunriseTime: string;
+  sunsetTime: string;
   iconSizes?: {
     thermometer?: number;
     humidity?: number;
     raindrop?: number;
     wind?: number;
     direction?: number;
-  }; // Allows customization of icon sizes
+  };
 }
 
 const forecast = [
@@ -66,12 +70,22 @@ const WeatherWidget: React.FC<WeatherWidgetProps> = ({
   rainAmount,
   windSpeed,
   windDirection,
-  iconSizes = {}, // Default to an empty object
+  sunriseTime,
+  sunsetTime,
+  iconSizes = {},
 }) => {
   return (
     <div className="widget-container">
       <div className="widget-header">
+        <div className="header-item">
+          <WiSunrise size={24} className="header-icon" />
+          <span className="header-time">{sunriseTime}</span>
+        </div>
         <h2 className="city-title">{city}</h2>
+        <div className="header-item">
+          <WiSunset size={24} className="header-icon" />
+          <span className="header-time">{sunsetTime}</span>
+        </div>
       </div>
       <div className="widget-main">
         <TemperatureGauge
